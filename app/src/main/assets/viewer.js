@@ -142,8 +142,8 @@ function renderPage(pageNumber, lazy, prerender, prerenderTrigger=0) {
                     textLayerDiv.replaceWith(newTextLayerDiv);
                     textLayerDiv = newTextLayerDiv;
                 }
-
                 newTextLayerDiv.appendChild(textLayerFrag);
+
                 if (cache.length === maxCached) {
                     cache.shift()
                 }
@@ -153,6 +153,7 @@ function renderPage(pageNumber, lazy, prerender, prerenderTrigger=0) {
                     canvas: newCanvas,
                     textLayerDiv: newTextLayerDiv
                 });
+
                 pageRendering = false;
                 doPrerender(pageNumber, prerenderTrigger);
             }).catch(handleRenderingError);
